@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/Base_set.gd" type="Script" id=1]
+[ext_resource path="res://Models/Ground/base.dae" type="PackedScene" id=2]
+[ext_resource path="res://Models/start.dae" type="PackedScene" id=3]
+[ext_resource path="res://GameObjects/Player.tscn" type="PackedScene" id=4]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -2.5, 2.8, 0.1 )
+fov = 40.0
+target = NodePath("../CameraPos")
+speed = 2.0
+enabled = true
+
+[node name="Base_set" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0 )
+script = ExtResource( 1 )
+player_path = NodePath("../Player")
+CameraPos_path = NodePath("../CameraPos")
+
+[node name="Base" parent="Base_set" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="Start" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0 )
+
+[node name="CameraPos" type="Position3D" parent="."]
+transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -2.5, 2.8, -0.5 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, 0.6 )
