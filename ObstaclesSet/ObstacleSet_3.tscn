@@ -1,0 +1,3 @@
+[gd_scene format=2]
+
+[node name="ObstacleSet_3" type="Spatial"]

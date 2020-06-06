@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/ground.obj-4d4d5610636c7ca23b0dbe3a4d0569dc.mesh"
+
+[deps]
+
+files=[ "res://.import/ground.obj-4d4d5610636c7ca23b0dbe3a4d0569dc.mesh" ]
+
+source_file="res://Models/Ground/ground.obj"
+dest_files=[ "res://.import/ground.obj-4d4d5610636c7ca23b0dbe3a4d0569dc.mesh", "res://.import/ground.obj-4d4d5610636c7ca23b0dbe3a4d0569dc.mesh" ]
+
+[params]
+
+generate_tangents=false
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
