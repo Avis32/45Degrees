@@ -46,7 +46,8 @@ func _process(delta):
 		speed = 0
 		mesh_instance.visible=false
 		get_node(\"CollisionShape\").disabled=true
-		var fract_instance = fracture_mesh_object.instance() as Spatial
+		var fract_instance: Spatial = fracture_mesh_object.instance() as Spatial
+		fract_instance
 		get_parent().add_child(fract_instance)
 		fract_instance.transform = transform
 		print(\"duuuuuuuuuuupaaaaaaaaa\")
@@ -84,12 +85,13 @@ script = SubResource( 1 )
 [node name="Spatial" type="Spatial" parent="."]
 
 [node name="Player" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+transform = Transform( 0.0880973, 0, 0, 0, 0.0880973, 0, 0, 0, 0.0880973, 0, 0, 0 )
 layers = 32
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Player"]
+transform = Transform( 1.11019, 0, 0, 0, 1.11019, 0, 0, 0, 1.11019, 0, 0, 0 )
 layers = 32
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )

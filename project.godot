@@ -39,6 +39,10 @@ change_direction={
 
 3d_physics/layer_10="Obstacles"
 
+[physics]
+
+3d/physics_engine="Bullet"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

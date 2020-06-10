@@ -40,17 +40,23 @@ script/source = "extends Spatial
 
 var last_spawn_z = 4
 export var player_path: NodePath
-var player_transform: Transform
+var player: KinematicBody
 export var ObstaclesScenes: Array
-var test: Object
+var last_spawn: int = 0
 
 func _ready():
-	player_transform = get_node(player_path).transform
+	print(typeof(ObstaclesScenes[0]))
+	pause_mode
+	player = get_node(player_path) as KinematicBody
+	var obstacle: Spatial = ObstaclesScenes[0].instance()
+	add_child(obstacle)
 	pass
 
 func _process(delta):
+	
 	# print(player_transform)
-	pass"
+	pass
+	"
 
 [sub_resource type="ProceduralSky" id=6]
 sun_color = Color( 0.968627, 0.0666667, 0.870588, 1 )
@@ -108,11 +114,10 @@ fracture_mesh = ExtResource( 6 )
 [node name="UI" type="Node" parent="."]
 
 [node name="Button" type="Button" parent="UI"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -28.5
-margin_right = 28.5
-margin_bottom = 20.0
+margin_left = 345.905
+margin_top = 6.84961
+margin_right = 402.905
+margin_bottom = 26.8496
 rect_scale = Vector2( 3.60294, 3.58624 )
 rect_pivot_offset = Vector2( 28.9174, 0.024157 )
 action_mode = 0
@@ -128,24 +133,13 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "FPS"
 script = SubResource( 4 )
 
-[node name="CenterContainer" type="CenterContainer" parent="UI"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -360.0
-margin_top = -720.0
-margin_right = 360.0
-margin_bottom = 720.0
-rect_scale = Vector2( 0.939247, 0.997299 )
-rect_pivot_offset = Vector2( -2.66394, -1.59661 )
-
 [node name="ObstaclesSpawner" type="Spatial" parent="."]
 script = SubResource( 5 )
 player_path = NodePath("../Player")
 ObstaclesScenes = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
 
 [node name="ObstacleSet_1" parent="ObstaclesSpawner" instance=ExtResource( 7 )]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7 )
 
 [node name="ObstacleSet_2" parent="ObstaclesSpawner" instance=ExtResource( 8 )]
